@@ -1,5 +1,11 @@
 :root {
   --ff-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	--bg-hide-0: rgb(226, 74, 74);
+	--bg-hide-50: rgb(221, 103, 103);
+	--bg-hide-100: rgb(221, 138, 138);
+	--bg-show-0: rgb(84, 190, 51);
+	--bg-show-50: rgb(112, 190, 88);
+	--bg-show-100: rgb(120, 182, 102);
 }
 
 * {
@@ -76,6 +82,7 @@ html {
 	text-align: center;
 	transition: all .2s ease-in-out;
 	display: none;
+	overflow: hidden;
 }
 
 .back-to-top:hover {
@@ -85,4 +92,112 @@ html {
 .back-to-top span {
 	font-size: 1.5rem;
 	color: #000;
+}
+
+.show {
+	animation: showel 2s;
+}
+
+.rotate {
+	animation: rotation 2s;
+	animation-timing-function: linear;
+}
+
+.hide {
+	animation: hideel 2s;
+}
+
+.d-block {
+	display: block;
+}
+
+.d-none {
+	display: none;
+}
+
+/* rotation */
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+/* transformation */
+@-webkit-keyframes showel {
+	0% {
+		background-color: var(--bg-show-0);
+		opacity: 0.2;
+	}
+	50% {
+		transform: translateX(-30px);
+		-webkit-transform: translateX(-30px);
+		background-color: var(--bg-show-50);
+		opacity: 0.6;
+	}
+	100% {
+		transform: translateX(0);
+		-webkit-transform: translateX(0);
+		background-color: var(--bg-show-100);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes hideel {
+	0% {
+		background-color: var(--bg-hide-0);
+		opacity: 1;
+	}
+	50% {
+		transform: translateX(-30px);
+		-webkit-transform: translateX(-30px);
+		background-color: var(--bg-hide-50);
+		opacity: 0.6;
+	}
+	100% {
+		transform: translateX(200%);
+		-webkit-transform: translateX(200%);
+		background-color: var(--bg-hide-100);
+		opacity: 0.2;
+	}
+}
+
+@keyframes showel {
+	0% {
+		background-color: var(--bg-show-0);
+		opacity: 0.2;
+	}
+	50% {
+		transform: translateX(-30px);
+		-webkit-transform: translateX(-30px);
+		background-color: var(--bg-show-50);
+		opacity: 0.6;
+	}
+	100% {
+		transform: translateX(0);
+		-webkit-transform: translateX(0);
+		background-color: var(--bg-show-100);
+		opacity: 1;
+	}
+}
+
+@keyframes hideel {
+	0% {
+		background-color: var(--bg-hide-0);
+		opacity: 1;
+	}
+	50% {
+		transform: translateX(-30px);
+		-webkit-transform: translateX(-30px);
+		background-color: var(--bg-hide-50);
+		opacity: 0.6;
+	}
+	100% {
+		transform: translateX(200%);
+		-webkit-transform: translateX(200%);
+		background-color: var(--bg-hide-100);
+		opacity: 0.2;
+	}
 }

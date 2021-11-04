@@ -1,18 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const toTop = document.querySelector('#toTop')
+
 	window.addEventListener('scroll', controlScroll)
+
 	function controlScroll() {
-		if (document.body.scrollTop > 20 ||
-				document.documentElement.scrollTop > 20) {
-    	toTop.style.display = "block"
+		const scrolltop = document.body.scrollTop || document.documentElement.scrollTop
+		let display = toTop.style.display
+		if (scrolltop > 400 || scrolltop > 400) {
+			toTop.style.display = 'block'
+			toTop.classList.remove('hide')
+			toTop.classList.add('show')
+			setTimeout(() => {
+				toTop.classList.add('rotate')
+			}, 2100)
 	  } else {
-	    toTop.style.display = "none"
+			if (display === 'block') {
+				toTop.classList.remove('show')
+				toTop.classList.add('hide')
+				setTimeout(() => {
+					toTop.classList.remove('rotate')
+					toTop.style.display = 'none'
+				}, 2000)
+			}
 	  }
 	}
+
 	toTop.addEventListener('click', e => {
 		document.body.scrollTop = 0
 		document.documentElement.scrollTop = 0
 	})
+
 	const ej01 = () => {
 		const num = 10
 		const cadena = ''
@@ -147,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		return { res, vocales }
 	}
+
 	document.addEventListener('click', e => {
 		const { target: { tagName, id } } = e
 		if (tagName === 'BUTTON') {
@@ -197,4 +215,5 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		}
 	})
+
 })
